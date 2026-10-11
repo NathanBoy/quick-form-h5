@@ -7,6 +7,8 @@
 [![Vite](https://img.shields.io/badge/vite-5-purple.svg)](https://vitejs.dev)
 [![CI](https://github.com/NathanBoy/quick-form-h5/actions/workflows/ci.yml/badge.svg)](https://github.com/NathanBoy/quick-form-h5/actions)
 
+> 🚀 **在线 Demo**：[https://nathanboy.github.io/quick-form-h5/](https://nathanboy.github.io/quick-form-h5/)，由 GitHub Pages 自动部署（详见 [部署到 GitHub Pages](#部署到-github-pages)）。
+
 ---
 
 ## 特性
