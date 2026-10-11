@@ -2,7 +2,7 @@
  * A tiny localStorage-backed mock backend.
  *
  * It lets the whole publish flow run end-to-end with no server at all,
- * which is the default behaviour of the project (`config.useMock === true`).
+ * which is the default behaviour of the project (`config.mock === 'local'`).
  *
  * Data is persisted in `localStorage` under a single key, so refreshes
  * and re-opens keep working within the same browser.
