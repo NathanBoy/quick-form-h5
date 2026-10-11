@@ -32,7 +32,7 @@ export default {
       title: '姓名',
       value: '',
       isDanger: 0,
-      reg: /^([a-zA-Z0-9\u4e00-\u9fa5\·]{1,10})$/,
+      reg: /^([a-zA-Z0-9\u4e00-\u9fa5·]{1,10})$/,
       isRequired: true,
       placeholder: '姓名'
     },

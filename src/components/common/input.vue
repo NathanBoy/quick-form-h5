@@ -51,7 +51,7 @@ export default {
 
     validate () {
       const value = this.props.value
-      const { isRequired, reg, title } = this.props
+      const { isRequired, reg } = this.props
 
       if (isRequired && !value.trim()) {
         this.props.isDanger = 2
