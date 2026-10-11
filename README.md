@@ -1,10 +1,10 @@
 # Quick Form H5
 
-一个移动端优先的**快速表单 H5 模板**，基于 Vue 2 + Webpack 构建。面向「突发事件 / 应急发布」场景：登记信息 → 上传照片 → 生成可分享的详情页，几分钟即可上线。内置本地 mock，**无需任何后端即可完整跑通**整条发布流程。
+一个移动端优先的**快速表单 H5 模板**，基于 Vue 2 + Vite 构建。面向「突发事件 / 应急发布」场景：登记信息 → 上传照片 → 生成可分享的详情页，几分钟即可上线。内置本地 mock，**无需任何后端即可完整跑通**整条发布流程。
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Vue](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org)
-[![Webpack](https://img.shields.io/badge/webpack-2-blue.svg)](https://webpack.js.org)
+[![Vite](https://img.shields.io/badge/vite-5-purple.svg)](https://vitejs.dev)
 
 ---
 
@@ -29,15 +29,14 @@
 ## 技术栈
 
 - [Vue](https://vuejs.org) 2.x + [Vue Router](https://router.vuejs.org) 2.x
-- [Webpack](https://webpack.js.org) 2 + vue-loader（vue-cli 风格构建）
+- [Vite](https://vitejs.dev) + [@vitejs/plugin-vue2](https://github.com/vitejs/vite-plugin-vue2)（开发 / 构建）
 - [axios](https://github.com/axios/axios)（HTTP 层，默认走本地 mock）
 - [AniX](https://a-jie.github.io/AniX/)（动画）、[Font Awesome](https://fontawesome.com/v4.7.0)（图标）
 
 ## 目录结构
 
 ```
-├── build/                 # webpack 构建脚本
-├── config/                # dev/prod 环境配置（含 dev server 代理）
+├── vite.config.js         # Vite 配置（别名 / 端口 / 代理）
 ├── index.html             # 入口模板（内置移动端 rem 自适应脚本）
 ├── src/
 │   ├── main.js            # 应用入口（全局指令、插件注册）
@@ -142,7 +141,7 @@ export default {
 - **为什么无需后端就能跑通？** 内置 `'local'`（localStorage）和 `'server'`（Express mock 服务器）两种演示模式，整条发布流程零后端可跑。
 - **如何接入自己的后端？** 把 `src/config.js` 的 `mock` 改为 `'remote'` 并设置 `baseURL`，按 `src/services/api.js` 里的契约实现四个接口即可。
 - **为什么用 rem？** 移动端自适应，1rem = 20px（按 320px 设计稿），适配到 640px 封顶。
-- **需要什么 Node 版本？** 项目基于 2017 年的 Webpack 2 工具链，建议在 Node 8–12 下安装运行；较新的 Node 可能安装或构建失败。
+- **需要什么 Node 版本？** 基于 Vite 构建，建议 Node ≥ 18；直接 `npm install && npm run dev` 即可。
 
 ## Roadmap（候选方向）
 
