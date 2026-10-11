@@ -1,7 +1,7 @@
 {
   "name": "quick-form-h5",
   "version": "1.0.0",
-  "description": "A mobile-first rapid form H5 template built with Vue 2 & Webpack. Publish and share an emergency notice in minutes — with a built-in local mock, it runs out of the box with no backend.",
+  "description": "A mobile-first rapid form H5 template built with Vue 2 & Webpack — reusable validated form components and a pluggable API layer, runs out of the box with no backend.",
   "author": "NathanBoy <liuhuakangk@163.com>",
   "license": "MIT",
   "private": false,
