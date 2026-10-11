@@ -5,6 +5,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Vue](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org)
 [![Vite](https://img.shields.io/badge/vite-5-purple.svg)](https://vitejs.dev)
+[![CI](https://github.com/NathanBoy/quick-form-h5/actions/workflows/ci.yml/badge.svg)](https://github.com/NathanBoy/quick-form-h5/actions)
 
 ---
 
@@ -28,15 +29,18 @@
 
 ## 技术栈
 
-- [Vue](https://vuejs.org) 2.x + [Vue Router](https://router.vuejs.org) 2.x
+- [Vue](https://vuejs.org) 2.x + [Vue Router](https://router.vuejs.org) 3.x
 - [Vite](https://vitejs.dev) + [@vitejs/plugin-vue2](https://github.com/vitejs/vite-plugin-vue2)（开发 / 构建）
 - [axios](https://github.com/axios/axios)（HTTP 层，默认走本地 mock）
+- [Vitest](https://vitest.dev)（单元测试）、[ESLint](https://eslint.org) + [Prettier](https://prettier.io)（代码规范）
 - [AniX](https://a-jie.github.io/AniX/)（动画）、[Font Awesome](https://fontawesome.com/v4.7.0)（图标）
 
 ## 目录结构
 
 ```
+├── .github/               # GitHub Actions（CI / Pages 部署）与 Issue/PR 模板
 ├── vite.config.js         # Vite 配置（别名 / 端口 / 代理）
+├── vitest.config.js       # Vitest 测试配置
 ├── index.html             # 入口模板（内置移动端 rem 自适应脚本）
 ├── src/
 │   ├── main.js            # 应用入口（全局指令、插件注册）
@@ -54,7 +58,10 @@
 │       └── pages/         # 业务页面 page0 ~ page5
 ├── server/
 │   └── mock-server.js     # ⭐ 本地 mock HTTP 服务器（'server' 模式）
-└── static/                # 无需构建处理的静态资源
+├── static/                # 无需构建处理的静态资源
+├── CONTRIBUTING.md        # 贡献指南
+├── CHANGELOG.md           # 变更日志
+└── LICENSE                # MIT 许可
 ```
 
 ## 快速开始
@@ -75,11 +82,20 @@ npm run dev
 # 生产构建
 npm run build
 
-# 构建并查看包体积分析
-npm run build --report
+# 本地预览构建产物
+npm run preview
 ```
 
 开发服务默认运行在 `http://localhost:4001`。
+
+### 开发命令
+
+```bash
+npm run lint       # ESLint 代码规范检查
+npm run format     # Prettier 自动格式化
+npm test           # 运行单元测试（Vitest）
+npm run mock       # 启动本地 mock HTTP 服务器
+```
 
 ## 页面流程
 
@@ -148,11 +164,20 @@ export default {
 - 表单组件扩展更多控件：下拉、日期、多选
 - 表单字段配置化：用 JSON 驱动页面生成
 - 提供官方参考后端实现
-- 补充单元测试与 CI
+
+## 部署到 GitHub Pages
+
+仓库已内置 Pages 部署工作流（`.github/workflows/deploy.yml`，`vite.config.js` 中 `base: './'` 已配置），推送到 `master` 后会自动构建并发布。
+
+启用步骤：
+
+1. 进入仓库 **Settings → Pages**
+2. 将 **Source** 设为 **GitHub Actions**
+3. 之后每次推送到 `master`，工作流会自动构建并部署到 `https://<username>.github.io/quick-form-h5/`
 
 ## 贡献
 
-欢迎提 Issue 和 Pull Request。涉及行为变更前请先开 Issue 讨论。
+欢迎提 [Issue](https://github.com/NathanBoy/quick-form-h5/issues) 和 Pull Request。详细规范见 [CONTRIBUTING.md](CONTRIBUTING.md)，涉及行为变更前请先开 Issue 讨论。
 
 ## License
 
