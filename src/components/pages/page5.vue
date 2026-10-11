@@ -19,7 +19,7 @@
         <span class="text">帮他转发</span>
         <div class="line"></div>
       </div>
-      <div class="share" @click="tippop">
+      <div class="share" @click="share">
         <div>
           <i class="fa fa-qq"></i>
           <i class="fa fa-wechat"></i>
@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import Share from '@/utils/share'
 import { publishGet } from '@/services/api'
 import defaultAvatar from '@/assets/avator.jpg'
 import tipImage from '@/assets/tipop.png'
@@ -76,6 +77,17 @@ export default {
       return data.name + '，' + sex + '，' + age +
         '在本次事件中失去联系，有知情者请联系：' +
         data.publish_name + '（电话:' + data.publish_phone + '）。望转发，万分感谢！'
+    },
+
+    // Share via the native sheet when available, else show the manual tip.
+    share () {
+      Share.share({
+        title: '寻人启事',
+        text: this.userData.desc || '',
+        url: location.href
+      }).then(shared => {
+        if (!shared) this.tippop()
+      })
     },
 
     tippop () {

@@ -24,7 +24,7 @@
         <span class="text">转发到</span>
         <div class="line"></div>
       </div>
-      <div class="share" @click="tippop">
+      <div class="share" @click="share">
         <div>
           <i class="fa fa-qq"></i>
           <i class="fa fa-wechat"></i>
@@ -54,6 +54,7 @@
 <script>
 import Toast from '@/components/common/toast'
 import bus from '@/utils/bus'
+import Share from '@/utils/share'
 import { imageUpload, publishUpdate } from '@/services/api'
 import defaultAvatar from '@/assets/avator.jpg'
 import tipImage from '@/assets/tipop.png'
@@ -132,6 +133,18 @@ export default {
         setTimeout(() => { this.showSuccess = false }, 800)
       }).catch(err => {
         console.error(err)
+      })
+    },
+
+    // Share via the native sheet when available, else show the manual tip.
+    share () {
+      const base = location.href.split('#')[0] || location.href
+      Share.share({
+        title: '寻人启事',
+        text: this.userData.desc || '',
+        url: base + '#/page5/' + this.userData.id
+      }).then(shared => {
+        if (!shared) this.tippop()
       })
     },
 
