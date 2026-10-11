@@ -103,6 +103,8 @@ export default {
 
 > `'server'` 与 `'remote'` 共用同一套 HTTP 接口契约；本地 mock 服务器基于 `express + multer`，数据保存在内存，重启即清空，仅供开发。
 
+> **注意**：`'local'` / `'server'` 两种 mock 模式下，数据仅存于单机（localStorage 或内存），`/page5/:id` 分享链接只有本机浏览器能打开。接入 `'remote'` 真实后端后，跨设备分享才会真正生效。
+
 按以下契约实现接口（对应 `src/services/api.js` 中的四个函数）：
 
 | 方法 | 路径 | 说明 | 返回 |
