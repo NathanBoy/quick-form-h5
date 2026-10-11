@@ -1,0 +1,28 @@
+/* -------------- 公共样式 -------------- */
+html, body, #app {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 0.6rem;
+}
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.65);;
+}
+.requiredSymbol {
+  color: #ff3860;
+}
+
+.bottomBtn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3rem;
+  margin: 0 auto;
+}
+input,
+select,
+textarea {
+  outline: 0;
+}
