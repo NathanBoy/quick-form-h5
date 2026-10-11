@@ -16,6 +16,16 @@
 - 🔌 **后端可插拔**：UI 与传输解耦，改一个配置即可从 mock 切换到真实服务
 - 🎞️ **页面过渡动画**：基于 [AniX](https://a-jie.github.io/AniX/) 的入场/退场动画，可随意定制
 
+## 界面预览
+
+<p align="center">
+  <img src="docs/preview.png" width="32%" alt="入口页"/>
+  <img src="docs/preview-form.png" width="32%" alt="发布表单"/>
+  <img src="docs/preview-detail.png" width="32%" alt="详情页"/>
+</p>
+
+> 以上为静态界面预览，可打开 [docs/preview.html](docs/preview.html) 交互查看三个页面。
+
 ## 技术栈
 
 - [Vue](https://vuejs.org) 2.x + [Vue Router](https://router.vuejs.org) 2.x
@@ -120,6 +130,26 @@ export default {
 - **校验规则**：字段的 `reg` 支持任意正则；`isRequired` 控制是否必填。
 - **过渡动画**：在 `src/utils/animate.js` 中新增一套 `{ enter, leave }`，再于 `App.vue` 的 `Animate.adapter('xxx')` 中引用。
 - **默认图片**：替换 `src/assets/avator.jpg`（默认头像）、`src/assets/tipop.png`（分享提示图）。
+
+## 使用场景
+
+- **应急寻人 / 走失发布**：登记信息、上传照片、生成可转发的详情页
+- **活动报名 / 信息收集**：多步表单 + 校验 + 一键提交
+- **突发事件的快速落地页**：几分钟搭好一个可直接发布的移动端 H5
+
+## 常见问题（FAQ）
+
+- **为什么无需后端就能跑通？** 内置 `'local'`（localStorage）和 `'server'`（Express mock 服务器）两种演示模式，整条发布流程零后端可跑。
+- **如何接入自己的后端？** 把 `src/config.js` 的 `mock` 改为 `'remote'` 并设置 `baseURL`，按 `src/services/api.js` 里的契约实现四个接口即可。
+- **为什么用 rem？** 移动端自适应，1rem = 20px（按 320px 设计稿），适配到 640px 封顶。
+- **需要什么 Node 版本？** 项目基于 2017 年的 Webpack 2 工具链，建议在 Node 8–12 下安装运行；较新的 Node 可能安装或构建失败。
+
+## Roadmap（候选方向）
+
+- 表单组件扩展更多控件：下拉、日期、多选
+- 表单字段配置化：用 JSON 驱动页面生成
+- 提供官方参考后端实现
+- 补充单元测试与 CI
 
 ## 贡献
 
